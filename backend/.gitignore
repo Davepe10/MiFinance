@@ -1,0 +1,27 @@
+# .gitignore
+.env
+
+# Ignore build artifacts
+# Ignore virtual environment
+__pycache__/
+venv/
+
+# Ignore node_modules (si estás usando Node.js en algún lugar)
+node_modules/
+
+# Ignore build artifacts
+/dist/
+
+# Ignore credentials and sensitive files
+credentials.json
+
+# Ignore Python cache files
+*.py[cod]
+
+# Ignore .env file
+.env
+
+# Ignore other temporary or generated files
+*.log
+*.sqlite
+*.db
