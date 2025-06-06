@@ -20,7 +20,7 @@ const FixedExpenseForm = ({ email, fetchFixedExpenses }) => {
       return;
     }
     try {
-      await axios.post('http://localhost:5000/gastos_fijos', {
+      await axios.post('https://mifinance.onrender.com/gastos_fijos', {
         ...expense,
         email
       });

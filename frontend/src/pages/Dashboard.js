@@ -121,7 +121,7 @@ const transaccionesFiltradas = useMemo(() => {
   // Cargar datos desde el backend
   const fetchTransacciones = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/get_transacciones', { params: { email: user.email } });
+      const res = await axios.get('https://mifinance.onrender.com/get_transacciones', { params: { email: user.email } });
       setTransacciones(res.data.transacciones || []);
     } catch (err) {
       toast.error('Error al cargar transacciones.');
@@ -130,7 +130,7 @@ const transaccionesFiltradas = useMemo(() => {
 
   const fetchObjetivos = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/get_objetivos', { params: { email: user.email } });
+      const res = await axios.get('https://mifinance.onrender.com/get_objetivos', { params: { email: user.email } });
       setObjetivos(res.data.objetivos || []);
     } catch (err) {
       toast.error('Error al cargar objetivos.');
@@ -139,7 +139,7 @@ const transaccionesFiltradas = useMemo(() => {
 
   const fetchGastosFijos = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/gastos_fijos', { params: { email: user.email } });
+      const res = await axios.get('https://mifinance.onrender.com/gastos_fijos', { params: { email: user.email } });
       setGastosFijos(res.data.gastos_fijos || []);
     } catch (err) {
       toast.error('Error al cargar gastos fijos.');
@@ -168,7 +168,7 @@ const transaccionesFiltradas = useMemo(() => {
       return;
     }
     try {
-      await axios.post('http://localhost:5000/add_transaction', { ...transaccion, email: user.email, fecha: new Date().toISOString() });
+      await axios.post('https://mifinance.onrender.com/add_transaction', { ...transaccion, email: user.email, fecha: new Date().toISOString() });
       setTransaccion({ tipo: 'ingreso', categoria: '', monto: '', descripcion: '' });
       fetchTransacciones();
       toast.success('Transacción registrada correctamente.');
@@ -185,7 +185,7 @@ const transaccionesFiltradas = useMemo(() => {
     }
 
     try {
-      await axios.post('http://localhost:5000/agregar_objetivo', {
+      await axios.post('https://mifinance.onrender.comagregar_objetivo', {
         ...nuevoObjetivo,
         email: user.email,
         alcanzado: 'no',
@@ -209,7 +209,7 @@ const transaccionesFiltradas = useMemo(() => {
     const cuotasPagadas = parseInt(obj.cuotas_pagadas || 0) + 1;
 
     try {
-      await axios.put('http://localhost:5000/marcar_cuota', {
+      await axios.put('https://mifinance.onrender.com/marcar_cuota', {
         email: user.email,
         descripcion: obj.descripcion,
         cuotas_pagadas: cuotasPagadas,
@@ -226,7 +226,7 @@ const transaccionesFiltradas = useMemo(() => {
   const handleEliminarObjetivo = async (index) => {
     const obj = objetivos[index];
     try {
-      await axios.delete('http://localhost:5000/eliminar_objetivo', {
+      await axios.delete('https://mifinance.onrender.com/eliminar_objetivo', {
         data: { email: user.email, descripcion: obj.descripcion },
       });
       setObjetivos(objetivos.filter((_, i) => i !== index));
@@ -245,7 +245,7 @@ const transaccionesFiltradas = useMemo(() => {
     }
 
     try {
-      await axios.post('http://localhost:5000/agregar_gasto_fijo', {
+      await axios.post('https://mifinance.onrender.com/agregar_gasto_fijo', {
         ...nuevoGastoFijo,
         email: user.email,
       });

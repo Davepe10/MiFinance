@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000";
+const API_URL = "https://mifinance.onrender.com";
 
 export const registerUser = async (email) => {
   const response = await axios.post(`${API_URL}/register`, { email });

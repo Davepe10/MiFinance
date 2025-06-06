@@ -11,7 +11,7 @@ const ForgotPassword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/forgot_password', { email });
+      const res = await axios.post('https://mifinance.onrender.com/forgot_password', { email });
       if (res.data.status === 'success') {
         setMessage('Te hemos enviado un correo.');
         toast.success('Correo de recuperación enviado.');

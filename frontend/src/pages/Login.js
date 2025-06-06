@@ -14,7 +14,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/login', { email, password });
+      const res = await axios.post('https://mifinance.onrender.com/login', { email, password });
       if (res.data.status === 'success') {
         login(res.data.user);
         navigate('/dashboard');
