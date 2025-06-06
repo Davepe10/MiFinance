@@ -74,7 +74,6 @@ def generate_token():
 
 # Registro de usuarios
 @app.route('/register', methods=['POST'])
-@cross_origin(origins="https://mi-finance.vercel.app")
 def register():
     data = request.get_json() or {}
     nombre = data.get("nombre", "").strip()
@@ -97,7 +96,6 @@ def register():
 
 # Inicio de sesión
 @app.route('/login', methods=['POST'])
-@cross_origin(origins="https://mi-finance.vercel.app")
 def login():
     data = request.get_json() or {}
     email = data.get("email", "").strip().lower()
@@ -123,7 +121,6 @@ def login():
 
 # Agregar transacción
 @app.route('/add_transaccion', methods=['POST'])
-@cross_origin(origins="https://mi-finance.vercel.app")
 def add_transaccion():
     data = request.get_json() or {}
     email = data.get("email", "").strip().lower()
@@ -145,7 +142,6 @@ def add_transaccion():
 
 # Obtener transacciones
 @app.route('/get_transacciones', methods=['GET'])
-@cross_origin(origins="https://mi-finance.vercel.app")
 def get_transacciones():
     email = request.args.get("email", "").strip().lower()
     if not email or not is_valid_email(email):
@@ -157,7 +153,6 @@ def get_transacciones():
 
 # Agregar objetivo
 @app.route('/agregar_objetivo', methods=['POST'])
-@cross_origin(origins="https://mi-finance.vercel.app")
 def agregar_objetivo():
     data = request.get_json() or {}
     email = data.get("email", "").strip().lower()
@@ -189,7 +184,6 @@ def agregar_objetivo():
 
 # Obtener objetivos
 @app.route('/get_objetivos', methods=['GET'])
-@cross_origin(origins="https://mi-finance.vercel.app")
 def get_objetivos():
     email = request.args.get("email", "").strip().lower()
     if not email or not is_valid_email(email):
@@ -201,7 +195,6 @@ def get_objetivos():
 
 # Eliminar objetivo
 @app.route('/eliminar_objetivo', methods=['DELETE'])
-@cross_origin(origins="https://mi-finance.vercel.app")
 def eliminar_objetivo():
     data = request.get_json() or {}
     email = data.get("email", "").strip().lower()
@@ -219,7 +212,6 @@ def eliminar_objetivo():
 
 # Marcar objetivo como alcanzado
 @app.route('/marcar_alcanzado', methods=['PUT'])
-@cross_origin(origins="https://mi-finance.vercel.app")
 def marcar_alcanzado():
     data = request.get_json() or {}
     email = data.get("email", "").strip().lower()
@@ -238,7 +230,6 @@ def marcar_alcanzado():
 
 # Agregar gasto fijo
 @app.route('/agregar_gasto_fijo', methods=['POST'])
-@cross_origin(origins="https://mi-finance.vercel.app")
 def agregar_gasto_fijo():
     data = request.get_json() or {}
     email = data.get("email", "").strip().lower()
@@ -259,7 +250,6 @@ def agregar_gasto_fijo():
 
 # Obtener gastos fijos
 @app.route('/gastos_fijos', methods=['GET'])
-@cross_origin(origins="https://mi-finance.vercel.app")
 def get_gastos_fijos():
     email = request.args.get("email", "").strip().lower()
     if not email or not is_valid_email(email):
@@ -271,7 +261,6 @@ def get_gastos_fijos():
 
 # Eliminar gasto fijo
 @app.route('/eliminar_gasto_fijo', methods=['DELETE'])
-@cross_origin(origins="https://mi-finance.vercel.app")
 def eliminar_gasto_fijo():
     data = request.get_json() or {}
     email = data.get("email", "").strip().lower()
@@ -289,7 +278,6 @@ def eliminar_gasto_fijo():
     return jsonify({"status": "error", "message": "Gasto fijo no encontrado."}), 404
 
 @app.route('/marcar_cuota', methods=['PUT'])
-@cross_origin(origins="https://mi-finance.vercel.app")
 def marcar_cuota():
     data = request.get_json() or {}
     email = data.get('email', '').strip().lower()
