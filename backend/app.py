@@ -120,7 +120,7 @@ def login():
     })
 
 # Agregar transacción
-@app.route('/add_transaccion', methods=['POST'])
+@app.route('/add_transaction', methods=['POST'])
 def add_transaccion():
     data = request.get_json() or {}
     email = data.get("email", "").strip().lower()
