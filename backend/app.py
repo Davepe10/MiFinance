@@ -14,7 +14,7 @@ import re
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app, origins=['https://mi-finance.vercel.app/']) 
+CORS(app, origins=['https://mi-finance.vercel.app']) 
 
 
 # Configuración de correo
