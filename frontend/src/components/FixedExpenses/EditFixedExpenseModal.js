@@ -32,7 +32,7 @@ const EditFixedExpenseModal = ({ show, handleClose, gastoFijo, onEditFixedExpens
     try {
       await axios.put('https://mifinance.onrender.com/editar_gasto_fijo',  {
         ...editedGastoFijo,
-        email: gastoFijo.email,
+        email: user.email,
       });
       handleClose();
       onEditFixedExpense();
